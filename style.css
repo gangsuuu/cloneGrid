@@ -1,6 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;1,300&display=swap');
-
-
 /*** css reset ****/
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -29,7 +26,6 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
- height: 7000px;
 }
 ol, ul {
 	list-style: none;
@@ -54,13 +50,10 @@ a {
 
 
 html{
-  background-color: #000000;
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
 :root {
-  --TextColor1:#145B32;
-  --TextColor2:#3f9f8e;
 
 }
 
@@ -73,195 +66,6 @@ body::-webkit-scrollbar {
   padding: 0;
 }
 
-
 #container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  outline: none;
-}
-
-#introPage{ 
-  position: absolute;
-  z-index: 9999;
-  background-color: #161817;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  color : var(--TextColor1);
-  font-size: 105px;
-  font-family: 'IBM Plex Mono', monospace;
-  text-transform: uppercase;
-}
-
-.header-box{
-  display: flex;
-  position: fixed;
-  width: 100%;
-  z-index: 9999;
-  justify-content: right;
-  align-items: center;
-}
-
-.earth-nav{
-  position: relative;
-  z-index: 999;
-  display: flex;
-  align-items: center;
-  color: white;
-  font-size: 30px;
-  padding: 20px 50px;
-}
-.earthMenuContatiner{
-  display:flex;
-  position: relative;
-  top:45px;
-  right: 56px;
-  gap: 8px;
-}
-.earthMenuContatiner li {
-  padding: 8px 15px;
-  width: 92px;
-  border: 2px solid var(--TextColor2);
-  position: relative;
-  /*
-  background-color: #161817;
-  */
-  text-align: center;
-  font-size: 15px;
-  font-family: 'IBM Plex Mono', monospace;
-  text-transform: uppercase;
-  cursor: pointer;
-  overflow: hidden;
-  z-index: 999;
-}
-
-.earthMenuContatiner li::before {
-  content: '';
-  /*
-  background-color: #161817;
-  */
-  display: inline-block;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0; 
-  left: 0;
-  z-index: 0;
-}
-.earthMenuContatiner li::after {
-  content: '';
-  /*
-  background-color: #145B32;
-  */
-  display: inline-block;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0; 
-  left: 0;
-  z-index:0;
-}
-
-.index-Content-Container{
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-}
-
-.earth-logo {
-  position: absolute;
-  overflow: hidden;
-  bottom: 90px;
-  left: 90px;
-  font-family: 'IBM Plex Mono', monospace;
-  text-transform: uppercase;
-}
-
-.earth-logo .earth {
-  color :var(--TextColor2);
-  font-size: 240px;
-  position: relative;
-}
-
-/* logo : hover
-.earth-logo .earth::after{
-  content: '';
-  display: inline-block;
-  position: absolute;
-  bottom:40px;
-  left: 0;
-  width: 0px;
-  height: 4px;
-  background-color: var(--TextColor2);
-}
-.earth-logo .earth::before{
-  content: '';
-  display: inline-block;
-  position: absolute;
-  bottom:40px;
-  left: 0;
-  width: 0px;
-  height: 4px;
-  z-index: 9999;
-}
-
-.earth-logo .earth:hover::after{
-  content: '';
-  display: inline-block;
-  position: absolute;
-  bottom:40px;
-  left: 0;
-  width: 710px;
-  height: 4px;
-  background-color: var(--TextColor2);
-  transition: .3s;
-}
-.earth-logo .earth:hover::before{
-  content: '';
-  display: inline-block;
-  position: absolute;
-  bottom:40px;
-  left: 0;
-  width: 710px;
-  height: 4px;
-  background-color: #000000;
-  transition: .3s;
-  transition-delay: .28s;
-}
-
-*/
-.index-Content-Box{
-  border: 2px solid var(--TextColor2);
-  width: 390px;
-  height: 520px;
-  position: absolute;
-  right: 5.5%;
-  top:110px;
-  color: var(--TextColor2);
-  font-size: 21px;
-  overflow: hidden;
-
-}
-.index-Content-Box > p{
- padding: 10px;
-}
-.index-Content-bottom{
-  position: absolute;
-  width: 89%;
-  height: 3px;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 80px;
-  background-color: var(--TextColor2);
-  color:white;
-}
-.index-Content-bottom p{
-  position: relative;
-  top:7px;
+	/* display: none; */
 }
