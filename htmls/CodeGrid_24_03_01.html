@@ -1,0 +1,433 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>24_01_22</title>
+    <script src="http://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+      :root {
+        --color-gray: #656565;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body{
+        width: 100%;
+        height: 100vh;
+        background: url(./hero-4.jpg) no-repeat 50% 50%;
+        background-size: cover;
+        font-family:  "Saans TRIAL";
+        overflow: hidden;
+      }
+      img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      i {
+        font-size: 24px;
+        color: var(--color-gray);
+      }
+      .search {
+        width: 100%;
+        margin-top: 7.5em;
+      }
+      .search-modal {
+        margin: 0 auto;
+        width: 40%;
+        background: linear-gradient(320deg, rgba(27,27,27,0.9) 0%, rgba(20,20,20,0.96) 100%);
+        border-radius: 1em;
+        overflow: hidden;
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      } 
+
+      .search-bar {
+        position: relative;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        padding: 1em;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .action-icons {
+        position: absolute;
+        right: 0;
+        display: flex;
+        gap: 1em;
+        padding: 1em;
+      }
+      .input {
+        width: 80%;
+      }
+      #search-input {
+        width: 100%;
+        background: none;
+        outline: none;
+        color: #fff;
+        font-family:"Sanns TRIAL";
+        font-size: 15px;
+        padding-left: 1em;
+      }
+      ::placeholder {
+        color: var(--color-gray);
+      }
+      .tags-container {
+        padding: 1em;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .tags-container span{
+          color:var(--color-gray);
+          font-size: 13.5px;
+      }
+      .tags {
+        width: 100%;
+        display: flex;
+        gap: 1em;
+        margin-top: 1em;
+      }
+      .tag {
+        display: flex;
+        align-items: center;
+        gap: 0.5em;
+        background-color: rgba(255, 255, 255, 0.1);
+        padding: 0.5em;
+        border-radius: 2em;
+      }
+      .tag p {
+        font-size: 15px;
+      }
+      .search-items-container p {
+        padding: 1em;
+        font-size: 13.5px;
+        color: var(--color-gray);
+      }
+      .search-tiems-container p span {
+        color: #fff;
+      }
+      #search-items {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+      }
+      #search-items li {
+        position: relative;
+        padding: 1em;
+        display: flex;
+        cursor: pointer;
+      }
+      .item-icons {
+        position: absolute;
+        right: 1em;
+        display: flex;
+        gap: 0.75em;
+      }
+      .user {
+        position: relative;
+        top: -0.075em;
+        width: 24px;
+        height: 24px;
+        background: var(--color-gray);
+        border-radius: 100%;
+        margin-right: 0.5em;
+      }
+
+      #search-tiems li a {
+        position: relative;
+        top: 0.25em;
+        text-decoration: none;
+        font-size: 15px;
+        color: #fff;
+      }
+
+      li a span {
+        color: var(--color-gray);
+        padding-left: 0.25em;
+      }
+      
+      #search-items li:hover:not(.header), .f-item:hover {
+        background-color: rgba(255, 255, 255, 0.05);;
+      }
+
+      li:nth-child(1) .user {
+        background: url('./user-1jpg') no-repeat 50% 50%;
+        background-size: cover;
+      }
+      li:nth-child(2) .user {
+        background: url('./user-2jpg') no-repeat 50% 50%;
+        background-size: cover;
+      }
+      li:nth-child(1) .user {
+        background: url('./user-3jpg') no-repeat 50% 50%;
+        background-size: cover;
+      }
+
+      .cmd-icon img{
+        width: 45px;
+        height: auto;
+      }
+
+      .quick-actions {
+        width: 100%;
+      }
+
+      .q-action {
+        padding: 0.75em 1em;
+      }
+
+      .q-action:nth-child(1) span {
+        font-size: 13.5px;
+      }
+      .q-action {
+        position: relative;
+        display: flex;
+      }
+
+      .g-action:hover:not(.q-header) {
+        background-color: rgba(255, 255, 255, 0.05);
+      }
+
+      .key {
+        position: absolute;
+        right: 1em;
+      }
+
+      .action {
+        padding-left: 0.75em;
+        cursor: pointer;
+      }
+      
+      .action p {
+        position: relative;
+        top: 0.5em;
+        line-height: 100%;
+        font-size: 15px;
+      }
+      
+      .q-action .icon, .key, .f-item .icon {
+        width: 30px;
+        height: 30px;
+        background: rgba(255, 255, 255, 0.1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 0.2em;
+      }
+
+      .q-aciton .icon i, .f-item .icon i, .key {
+        color: #fff;
+        font-size: 15px;
+      }
+      .f-header {
+        padding: 1em;
+        color: var(--color-gray);
+        font-size: 13.5px;
+      }
+      .f-header p span {
+        color: #fff;
+      }
+      .f-item {
+        position: relative;
+        width: 100%;
+        display: flex;
+        padding: 1em;
+      }
+      .file-item {
+        display: flex;
+        align-items: center;
+        padding-left: 1em;
+        gap: 0.75em;
+      }
+      .file-tiem p span {
+        color: var(--color-gray);
+      }
+      .btn {
+        position: absolute;
+        right: 1em;
+        display: flex;
+        align-items: center;
+        gap: 0.5em;
+      }
+      .file-item i {
+        color: #69ca1f;
+      }
+      .search-item-container p {
+        color: var(--color-gray);
+      }
+
+      @media(max-width: 900px) {
+        .search-modal {
+          width: 90%;
+        }
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="search">
+      <div class="search-modal">
+        <div class="search-bar">
+          <div class="search-icon">
+          <i class="ph ph-magnifying-glass"></i> 
+          </div>
+          <div class="input">
+            <input 
+              type="text"
+              id="search-input"
+              onkeyup="searchList()"
+              placeholder="Search for action, people, instruments"
+            />
+          </div>
+          <div class="action-icons">
+            <div class="filter-icon">
+              <i class="ph ph-sliders-horizontal"></i>
+            </div>
+            <div class="cmd-icon">
+              <img src="./cmd-f.png" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="tags-container">
+          <span>I'm looking for...</span>
+          <div class="tags">
+            <div class="tag">
+              <i class="ph ph-radio-button"></i>
+              <p>Reactions</p>
+              <i class="ph-thin -ph-x"></i>
+            </div>
+            <div class="tag">
+              <i class="ph ph-users"></i>
+              <p>People</p>
+              <i class="ph-thin -ph-x"></i>
+            </div>
+            <div class="tag">
+              <i class="ph ph-buildings"></i>
+              <p>Companies</p>
+              <i class="ph-thin -ph-x"></i>
+            </div>
+          </div>
+        </div>
+        <div class="search-items-container">
+          <p>last search &nbsp;&nbsp;<span>3</span></p>
+          <ul id="search-items">
+            <li>
+              <div class="user"></div>
+                <a href="#">Jason Woddheart<span>jason@dribbble.com</span></a>
+                <div class="item-icons">
+                  <div class="icon">
+                    <i class="ph ph-chat-teradrop-text"></i>
+                  </div>
+                  <div class="icon">
+                    <i class="ph ph-list-plus"></i>
+                  </div>
+                </div>
+            </li>
+            <li>
+              <div class="user"></div>
+                <a href="#">Rob Miller<span>rob@icolud.com</span></a>
+                <div class="item-icons">
+                  <div class="icon">
+                    <i class="ph ph-chat-teradrop-text"></i>
+                  </div>
+                  <div class="icon">
+                    <i class="ph ph-list-plus"></i>
+                  </div>
+                </div>
+            </li>
+            <li>
+              <div class="user"></div>
+                <a href="#">Hannah Steward <span>replied on thread</span></a>
+                <div class="item-icons">
+                  <div class="icon">
+                    <i class="ph ph-chat-teradrop-text"></i>
+                  </div>
+                  <div class="icon">
+                    <i class="ph ph-list-plus"></i>
+                  </div>
+                </div>
+            </li>
+          </ul>
+        </div>
+        <div class="quick-actions">
+          <div class="q-action q-header">
+            <span>Quick actions</span>
+          </div>
+
+          <div class="q-action">
+            <div class="icon">
+              <i class="ph ph-plus"></i>
+            </div>
+            <div class="action">
+              <p>Create new task</p>
+            </div>
+            <div class="key"><span>E</span></div>
+          </div>
+
+          <div class="q-action">
+            <div class="icon">
+              <i class="ph ph-plus"></i>
+            </div>
+            <div class="action">
+              <p>Create Note</p>
+            </div>
+            <div class="key"><span>S</span></div>
+          </div>
+          <div class="q-action">
+            <div class="icon">
+              <i class="ph ph-plus"></i>
+            </div>
+            <div class="action">
+              <p>Add members</p>
+            </div>
+            <div class="key"><span>R</span></div>
+          </div>
+
+          <div class="file">
+            <div class="f-header">
+              <p>Files &nbsp;&nbsp; <span>1</span></p>
+            </div>
+            <div class="f-item">
+              <div class="icon"><i class="ph ph-file-arrow-down"></i></div>
+              <div class="file-item">
+                <p>Invoice <span>.pdf</span></p>
+                <p><i class="ph ph-check"></i></p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const searchList = () => {
+        let input, filter , ul, li, a, txtValue;
+        let visibleCount = 0;
+
+        input = document.getElementById("search-input")
+        filter = input.value.toUpperCase(); //01, input에서 받은 벨류값 uppercase 하는 이유는 소문자 대문자 서로 다르다는 점을 해결하기 위해서
+        ul = document.getElementById("search-items")
+        li = ul.getElementsByTagName('li');
+
+        for(let i = 0; i < li.length; i++) {
+          a = li[i].getElementsByTagName("a")[0]; // li 리스트
+          txtValue = a.textContent || a.innerText; // a.textContent의 값이 없을 경우 a.innerText를 반환 함
+          if(txtValue.toUpperCase().indexOf(filter) > -1){ //대문자로 변환된 이름값과 filter 벨류값이 일치하는지 확인
+            li[i].style.display = ""; 
+            visibleCount++ 
+          } else {
+            li[i].style.display = 'none'
+          }
+        }//for end
+        document.querySelector(".search-items-container p span").textContent = visibleCount;
+      }
+      // 01: .toUpperCase(); // 대문자로 반환하는 메소드
+      
+
+    </script>
+  </body>
+</html>
