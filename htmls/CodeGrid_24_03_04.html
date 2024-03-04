@@ -1,0 +1,516 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>24_03_04</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .container {
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        background-color: #000;
+        overflow: hidden;
+      }
+
+      nav {
+        position: fixed;
+        width: 100%;
+        padding: 2em;
+        display: flex;
+        align-items: center;
+        z-index: 2;
+      }
+
+      nav p,
+      footer p {
+        color: #fff;
+        font-style: 12px;
+      }
+
+      nav > div {
+        flex: 1;
+      }
+
+      .menu-btn p {
+        width: max-content;
+        background-color: rgba(255,255,255,0.1);
+        border-radius: 40px;
+        backdrop-filter: blur(20px);
+        padding: 6px 12px;
+      }
+
+      .logo {
+        display: flex;
+        justify-content: center;
+      }
+      .local-time {
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      .logo a{
+        text-decoration: none;
+        color: #fff;
+        font-size: 20px;
+        font-weight: 500;
+      }
+
+      footer {
+        position: fixed;
+        bottom: 0; 
+        width: 100%;
+        padding: 2em;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 2;
+      }
+
+      .items {
+        position: fixed;
+        width: 30%;
+        height: 100vh;
+        padding: 0 2em;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        z-index: 2;
+      }
+
+      .item {
+        width: max-content;
+        padding: 0.25em 0;
+        cursor: pointer;
+      }
+
+      .item p {
+        color: #fff;
+        padding: 6px 12px;
+        font-weight: lighter;
+        background: rgba(255,255,255,0.1);
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 40px;;
+        backdrop-filter: blur(20px);
+        transition: 0.5s;
+      }
+      
+      .item:hover p {
+        background: none;
+        border: 1px solid rgba(255,255,255,0.25);
+      }
+
+      .preview {
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        z-index: 0;
+        color: #fff;
+        z-index: 1;
+      }
+
+      .preview-bg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        opacity: 0.35;
+      }
+
+      .preview-title h1 {
+        font-weight: lighter;
+        font-size: 80px;
+      }
+
+      .preview-tags p,
+      .ppreview-description p{
+        font-size: 14px;
+        line-height: 120%;
+      }
+
+      .preview.variant-1 .preview-img{
+        position: absolute;
+        bottom: 0%;
+        right: 0%;
+        margin: 2em;
+        width: 300px;
+        height: 400px;
+        clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
+      }
+
+      .preview-variant-1 .preview-title {
+        position: absolute;
+        top:35%;
+        left: 25%;
+      }
+
+      .preview.-variant-1 .preview-tags{
+        position: absolute;
+        bottom: 25%;
+        right: 40%;
+      }
+
+      .preview-variant-1 .preview-description {
+        width: 250px;
+        position: absolute;
+        right: 25%;
+        top: 25%;
+      }
+
+      /* variant 2 */
+      .preview.variant-2 .preview-img{
+        position: absolute;
+        bottom: 0%;
+        right: 0%;
+        margin: 2em;
+        width: 300px;
+        height: 400px;
+        clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
+      }
+
+      .preview-variant-2 .preview-title {
+        position: absolute;
+        top:35%;
+        left: 25%;
+      }
+
+      .preview.-variant-2 .preview-tags{
+        position: absolute;
+        bottom: 25%;
+        right: 40%;
+      }
+
+      .preview-variant-2 .preview-description {
+        width: 250px;
+        position: absolute;
+        right: 25%;
+        top: 25%;
+      }
+
+      /* variant 3 */
+      .preview.variant-3 .preview-img{
+        position: absolute;
+        bottom: 0%;
+        right: 0%;
+        margin: 2em;
+        width: 300px;
+        height: 400px;
+        clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
+      }
+
+      .preview-variant-3 .preview-title {
+        position: absolute;
+        top:35%;
+        left: 25%;
+      }
+
+      .preview.-variant-3 .preview-tags{
+        position: absolute;
+        bottom: 25%;
+        right: 40%;
+      }
+
+      .preview-variant-3 .preview-description {
+        width: 250px;
+        position: absolute;
+        right: 25%;
+        top: 25%;
+      }
+
+
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <nav>
+        <div class="menu-btn">
+          <p>Menu</p>
+        </div>
+        <div class="logo">
+          <a href="#">Thetalab</a>
+        </div>
+        <div class="local-time">
+          <p>ON 3:45PM</p>
+        </div>
+      </nav>
+      
+      <footer>
+        <p>Watch Showreel</p>
+        <p>Collection 2024</p>
+      </footer>
+      <div class="items">
+        <div class="item"><p>Item name</p></div>
+        <div class="item"><p>Item name</p></div>
+        <div class="item"><p>Item name</p></div>
+        <div class="item"><p>Item name</p></div>
+        <div class="item"><p>Item name</p></div>
+        <div class="item"><p>Item name</p></div>
+        <div class="item"><p>Item name</p></div>
+        <div class="item"><p>Item name</p></div>
+        <div class="item"><p>Item name</p></div>
+        <div class="item"><p>Item name</p></div>
+      </div>
+      <div class="preview-bg">
+        <img src="../public/assets/imges/img_24_03_04/1.png" alt="">
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"> </script>
+    <script>
+      const mapClasses = [
+        "variant-1",
+        "variant-2",
+        "variant-3",
+        "variant-1",
+        "variant-2",
+        "variant-3",
+        "variant-1",
+        "variant-2",
+        "variant-3",
+        "variant-1",
+      ]
+      const previews = [
+        {
+          img: "./assets/main01.jpg",
+          title: "Ra",
+          tags: "Futuristic Fashion, Minimal Design",
+          description: "Exploring the intersection of minimalism and future fashion in web design."
+        },
+        {
+          img: "./assets/main02.jpg",
+          title: "Uptask",
+          tags: "Fashion Innovation, Graphic Simplicity",
+          description: "Innovative fashion-forward web design with a core focus on simplicity and elegance."
+        },
+        {
+          img: "./assets/main03.jpg",
+          title: "Genix",
+          tags: "Eco-Fashion Sustainable Design",
+          description: "Sustainable fashion meets modern web aesthetics, highlighting eco-friendly apparel innovation."
+        },
+        {
+          img: "./assets/main04.jpg",
+          title: "Unor",
+          tags: "Digital Fashion, UI/UX",
+          description: "Digital-first fashion branding that merges cutting-edge UI/UX principles with style."
+        },
+        {
+          img: "./assets/main05.jpg",
+          title: "Xav",
+          tags: "Interactive Design, Fashion Tech",
+          description: "Tech-infused fashion experiences showcased through interactive web design elements."
+        },
+        {
+          img: "./assets/main06.jpg",
+          title: "Maxim Stark",
+          tags: "Futursitic Wearables, Web Graphics",
+          description: "Futurstic wearables and gear presented in a sleek, graphically rich web interface"
+        },
+        {
+          img: "./assets/main07.jpg",
+          title: "Pintcher",
+          tags: "Innovative Textiles, Web Presentation",
+          description: "Web presentation of innovative textiles that redefine the boundaries of modern fashion."
+        },
+        {
+          img: "./assets/main08.jpg",
+          title: "MindSpace",
+          tags: "Augmented Reality, Fashion Design",
+          description: "Augmented reality in  fashion design, creating immersive web experiences for users."
+        },
+        {
+          img: "./assets/main09.jpg",
+          title: "The Athletix",
+          tags: "Virtual Fashion, graphic Desgin",
+          description: "Virtual fashion collections displayed through stunning graphic design and web aesthtics."
+        },
+        {
+          img: "./assets/main10.jpg",
+          title: "All Work",
+          tags: "Minimalist Aestherical, Fashion Forward",
+          description: "Fashion foward web design encapsulating the essence of minimalist aesthetics and innovation."
+        },
+      ]
+      
+      document.addEventListener("DOMContentLoaded", function (){
+        const container = document.querySelector(".container");
+        const previewBg = document.querySelector(".preview-bg")
+        const items = document.querySelectorAll(".itme")
+
+        let activePreview = document.querySelector(".preview.default")
+
+        let isMouseOverItme = false;
+
+        const defaultClipPaths = {
+          "variant-1":"polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
+          "variant-2":"polygon(100% 0, 100% 0, 100% 100%, 100% 100%)",
+          "variant-3":"polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)",
+        }
+        const variantTransforms = {
+          "variant-1": {
+            title: {x:75, opacity :0},
+            tag: {y:-75, opacity :0},
+            description: {x:-75, opacity :0}
+          },
+          "variant-2": {
+            title: {x:-75, opacity :0},
+            tag: {y:-75, opacity :0},
+            description: {x:75, opacity :0}
+          },
+          "variant-3": {
+            title: {x:75, opacity :0},
+            tag: {y:75, opacity :0},
+            description: {x:75, opacity :0}
+          },
+        }
+        function getDefaultClipPath(preventElement) {
+          for(const variant in defaultClipPaths){
+            if(preventElement.classList.contains(variant)){
+              return defaultClipPaths[variant]
+            }
+          }
+          return "polygon(100% 0%, 0% 0%, 0% 100%, 100% 100%)"
+        }
+
+        function applyVariantsStyles(preventElement){
+          const variant = preventElement.className
+          .split(" ")
+          .find((className)=> className.startsWith("variant-"));
+          if(variant && variantTransforms[variant]){
+            Object.entries(variantTransforms[variant]).forEach(
+              ([ElementClass, transform]) => {
+                const element = preventElement.querySelector(
+                  `.preview-${elementClass}`
+                );
+                if(element) {
+                  gsap.set(element, transform);
+                }
+              }
+            )
+
+          }
+        }
+        function changeBg(newImgSrc) {
+          const newImg = document.querySelector("img")
+          newImg.src = newImgSrc
+          newImg.style.position = "absolute";
+          newImg.style.top = "0"
+          newImg.style.left = "0"
+          newImg.style.width = "100%"
+          newImg.style.height = "100%"
+          newImg.style.objectFit = "cover"
+
+          previewBg.appendChild(newImg)
+          gsap.to(newImg, {opacity :1, duration :0.5})
+
+          if(previewBg.children.length >1){
+            const oldImg = previewBg.children[0];
+            gsap.to(oldImg, {
+              opacity:0,
+              duration :0.5,
+              onComplete : ()=>{
+                previewBg.removeChild(oldImg);
+              }
+            })
+          }
+        }
+
+        previews.forEach((preview, index) => {
+            const previewElement = document.createElement("div");
+            previewElement.className = `preview ${mapClasses[index]} preview-${index+1}`
+            previewElement.innerHTML = `
+            <div class="preview-img"><img src=${preview.img} alt=""/></div>
+            <div class="preview-title"><h1>${preview.title}</h1></div>
+            <div class="preview-tags"><p>${preview.tags}</p></div>
+            <div class="preview-description"><p>${preview.description}</p></div>
+            `
+
+            container.appendChild(previewElement)
+            applyVariantsStyles(previewElement)
+        })
+
+        items.forEach((item,index) => {
+          item.addEventListener("mouseenter",()=>{
+            isMouseOverItme = true;
+            const newBg = `./assets/bg-${index +1}.jpg`
+            changeBg(newBg)
+
+
+            const newActivePreview = document.querySelector(`.preview-${index+1}`)
+            if (activePreview && activePreview != newActivePreview){
+              const previousActivePreviewImg = activePreview.querySelector(".preview-img")
+              const previousDefaultClipPath = getDefaultClipPath(activePreview);
+              gsap.to(previousActivePreviewImg, {
+                clipPath : previousDefaultClipPath,
+                duration : 0.75,
+                ease: "power3.out"
+              })
+              gsap.to(activePreview, {
+                opacity: 0,
+                duration: 0.3,
+                delay : 0.2
+              })
+              applyVariantsStyles(activePreview, true);
+            }
+            gsap.to(newActivePreview, { opacity: 1, duration: 0.1});
+            activePreview = newActivePreview
+
+            const elementsToAnimate = ["title", "tags", "description"]
+            elementsToAnimate.forEach((el) =>{
+              const element = newActivePreview.querySelector(`.preview-${el}`)
+              if(element){
+                gsap.to(element, { x:0, y:0, opacity: 1, duration:0.5});
+              }
+            })
+            
+            const activePreviewImg = activePreview.querySelector(".preview-img")
+            gsap.to(activePreviewImg, {
+              clipPath : "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+              duration :1,
+              ease: "power3.out"
+            })
+          })
+          item.addEventListener("mouseleave",()=> {
+            isMouseOverItme = false;
+            applyVariantsStyles(activePreview, true)
+
+            setTimeout(() => {
+              if(!isMouseOverItme){
+                changeBg("../public/assets/imges/img_24_03_04/1.png");
+                if( activePreview){
+                  gsap.to(activePreview, {opacity :0, duration : 0.1})
+                  const defaultPreview = document.querySelector('.preview.default')
+                  gsap.to(defaultPreview, {opacity :1, duration : 0.1});
+                  activePreview = defaultPreview
+
+                  const activePreviewImg = activePreview.querySelector('.preview-img')
+                  const defaultClipPath = getDefaultClipPath(activePreview);
+                  gsap.to(activePreviewImg, {
+                    clipPath: defaultClipPath,
+                    duration:1,
+                    ease: "power3.out"
+                  })
+                }
+              }
+            }, 10)
+          })
+        })
+
+
+      })//addEvent
+
+    </script>
+  </body>
+</html>
