@@ -1,0 +1,236 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>24_02_19</title>
+    <style>
+      *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        background: #e7e4e5;
+        overflow-x: hidden;
+      }
+
+      .loader {
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        background: #000;
+        pointer-events: none;
+        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+      }
+
+      .loader-imgs {
+        width: 150%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        display: flex;
+        gap: 50px;
+        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+      }
+
+      .img {
+        position: relative;
+        flex: 1;
+        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      nav {
+        width: 100%;
+        padding: 30px;
+        display: flex;
+        align-items: center;
+      }
+
+      .nav-item {
+        position: relative;
+        flex: 1;
+      }
+      .nav-item:nth-child(2){
+        text-align: center;
+        font-size: 24px;
+        font-weight: 500;
+      }
+      .nav-item:nth-child(3) {
+        text-align: right;
+      }
+
+      #logo a {
+        text-transform: none;
+      }
+
+      a {
+        text-decoration: none;
+        text-transform: uppercase;
+        color: #000;
+      }
+
+      .hero {
+        width: 100%;
+        position: absolute;
+        top: 45%;
+        transform: translateY(-50%);
+        text-transform: uppercase;
+      }
+
+      .h1 {
+        width: 100%;
+        text-align: center;
+        font-size: 4vw;
+        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+      }
+
+      h1 {
+        position: relative;
+        font-weight: 400;
+        line-height: 85%;
+      }
+
+      h1 span {
+        font-weight: 700;
+      }
+
+      footer {
+        width: 100%;
+        position: absolute;
+        bottom: 30px;
+        right: 30px;
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+      }
+
+      .item {
+        position: relative;
+        width: 100px;
+        height: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="loader">
+        <div class="loader-imgs">
+          <div class="img">
+            <img src="../public/assets/imges/img_24_01_18/11.jpg" alt="" />
+          </div>
+          <div class="img">
+            <img src="../public/assets/imges/img_24_01_18/1.jpg" alt="" />
+          </div>
+          <div class="img">
+            <img src="../public/assets/imges/img_24_01_18/2.jpg" alt="" />
+          </div>
+          <div class="img" id="loader-logo">
+            <img src="../public/assets/imges/img_24_01_18/3.jpg" alt="" />
+          </div>
+          <div class="img">
+            <img src="../public/assets/imges/img_24_01_18/4.jpg" alt="" />
+          </div>
+          <div class="img">
+            <img src="../public/assets/imges/img_24_01_18/5.jpg" alt="" />
+          </div>
+          <div class="img">
+            <img src="../public/assets/imges/img_24_01_18/6.jpg" alt="" />
+          </div>
+        </div>
+      </div>
+      <div class="website-content">
+        <nav>
+          <div class="nav-item">
+            <a href="#">( menu )</a>
+          </div>
+          <div class="nav-item" id="logo">
+            <a href="#">EliteWebsites</a>
+          </div>
+          <div class="nav-item">
+            <a href="#">( work* )</a>
+          </div>
+        </nav>
+        <div class="hero">
+          <div class="h1">
+            <h1>we believe</h1>
+          </div>
+          <div class="h1">
+            <h1>websites shape the</h1>
+          </div>
+          <div class="h1">
+            <h1><sapn>future</sapn></h1>
+          </div>
+        </div>
+
+        <footer>
+          <div class="item">
+            <img src="../public/assets/imges/img_24_01_18/7.jpg" alt="" />
+          </div>
+          <div class="item">
+            <img src="../public/assets/imges/img_24_01_18/8.jpg" alt="" />
+          </div>
+          <div class="item">
+            <img src="../public/assets/imges/img_24_01_18/9.jpg" alt="" />
+          </div>
+          <div class="item">
+            <img src="../public/assets/imges/img_24_01_18/10.jpg" alt="" />
+          </div>
+        </footer>
+
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"> </script>
+    <script>
+       document.addEventListener("DOMContentLoaded", function(){
+        gsap.set(".img", {y:500});
+        gsap.set(".loader-imgs", {x:500})
+        gsap.set(".nav-item",{y:25,opacity:0})
+        gsap.set("h1, .item, footer",{ y:200})
+
+        const tl = gsap.timeline({delay:1});
+
+        tl.to(".img", {
+          y:0,
+          duration:1.5,
+          stagger:0.05,
+          ease:"power3.inOut"
+        }).to(".loader-imgs",{
+          x: 0,
+          duration:3,
+          ease: "power3.inOut"
+        },"-=2.5")
+        .to(".img:not(#loader-logo",{
+        clipPath : "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
+        duration :1,
+        stagger:0.1,
+        ease:"power3.inOut"
+       },"-=1")
+       .to(".loader",{
+        clipPath : "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
+        duration :1,
+        stagger:0.1,
+        ease:"power3.inOut"
+       },"-=0.5")
+       .to(".nav-item, h1, footer, .item",{
+        y:0,
+        opacity:1,
+        duration :1,
+        stagger:0.1,
+        ease:"power3.inOut"
+       },"-=0.5")
+      })
+    </script>
+  </body>
+</html>
