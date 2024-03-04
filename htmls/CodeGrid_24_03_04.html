@@ -150,19 +150,19 @@
         clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
       }
 
-      .preview-variant-1 .preview-title {
+      .preview.variant-1 .preview-title {
         position: absolute;
         top:35%;
         left: 25%;
       }
 
-      .preview.-variant-1 .preview-tags{
+      .preview.variant-1 .preview-tags{
         position: absolute;
         bottom: 25%;
         right: 40%;
       }
 
-      .preview-variant-1 .preview-description {
+      .preview.variant-1 .preview-description {
         width: 250px;
         position: absolute;
         right: 25%;
@@ -172,61 +172,61 @@
       /* variant 2 */
       .preview.variant-2 .preview-img{
         position: absolute;
-        bottom: 0%;
-        right: 0%;
+        bottom: 10%;
+        right: 5%;
         margin: 2em;
         width: 300px;
         height: 400px;
         clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
       }
 
-      .preview-variant-2 .preview-title {
+      .preview.variant-2 .preview-title {
         position: absolute;
-        top:35%;
-        left: 25%;
+        top:30%;
+        left: 50%;
       }
 
-      .preview.-variant-2 .preview-tags{
+      .preview.variant-2 .preview-tags{
         position: absolute;
         bottom: 25%;
-        right: 40%;
+        right: 25%;
       }
 
-      .preview-variant-2 .preview-description {
+      .preview.variant-2 .preview-description {
         width: 250px;
         position: absolute;
-        right: 25%;
-        top: 25%;
+        right: 10%;
+        top: 15%;
       }
 
       /* variant 3 */
       .preview.variant-3 .preview-img{
         position: absolute;
-        bottom: 0%;
-        right: 0%;
+        bottom: 10%;
+        right: 15%;
         margin: 2em;
         width: 300px;
         height: 400px;
         clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
       }
 
-      .preview-variant-3 .preview-title {
+      .preview.variant-3 .preview-title {
         position: absolute;
-        top:35%;
-        left: 25%;
+        top: 40%;
+        left: 15%;
       }
 
-      .preview.-variant-3 .preview-tags{
+      .preview.variant-3 .preview-tags{
         position: absolute;
-        bottom: 25%;
-        right: 40%;
+        bottom: 20%;
+        right: 30%;
       }
 
-      .preview-variant-3 .preview-description {
+      .preview.variant-3 .preview-description {
         width: 250px;
         position: absolute;
-        right: 25%;
-        top: 25%;
+        right: 20%;
+        top: 15%;
       }
 
 
@@ -347,7 +347,7 @@
       document.addEventListener("DOMContentLoaded", function (){
         const container = document.querySelector(".container");
         const previewBg = document.querySelector(".preview-bg")
-        const items = document.querySelectorAll(".itme")
+        const items = document.querySelectorAll(".item")
 
         let activePreview = document.querySelector(".preview.default")
 
@@ -361,17 +361,17 @@
         const variantTransforms = {
           "variant-1": {
             title: {x:75, opacity :0},
-            tag: {y:-75, opacity :0},
+            tags: {y:-75, opacity :0},
             description: {x:-75, opacity :0}
           },
           "variant-2": {
             title: {x:-75, opacity :0},
-            tag: {y:-75, opacity :0},
+            tags: {y:-75, opacity :0},
             description: {x:75, opacity :0}
           },
           "variant-3": {
             title: {x:75, opacity :0},
-            tag: {y:75, opacity :0},
+            tags: {y:75, opacity :0},
             description: {x:75, opacity :0}
           },
         }
@@ -383,7 +383,6 @@
           }
           return "polygon(100% 0%, 0% 0%, 0% 100%, 100% 100%)"
         }
-
         function applyVariantsStyles(preventElement){
           const variant = preventElement.className
           .split(" ")
@@ -392,7 +391,7 @@
             Object.entries(variantTransforms[variant]).forEach(
               ([ElementClass, transform]) => {
                 const element = preventElement.querySelector(
-                  `.preview-${elementClass}`
+                  `.preview-${ElementClass}`
                 );
                 if(element) {
                   gsap.set(element, transform);
@@ -436,7 +435,6 @@
             <div class="preview-tags"><p>${preview.tags}</p></div>
             <div class="preview-description"><p>${preview.description}</p></div>
             `
-
             container.appendChild(previewElement)
             applyVariantsStyles(previewElement)
         })
@@ -460,7 +458,7 @@
               gsap.to(activePreview, {
                 opacity: 0,
                 duration: 0.3,
-                delay : 0.2
+                // delay : 0.1
               })
               applyVariantsStyles(activePreview, true);
             }
