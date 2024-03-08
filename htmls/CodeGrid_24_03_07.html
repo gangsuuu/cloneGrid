@@ -1,0 +1,354 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>24_03_07</title>
+    <style>
+      :root {
+        --color-accent: rgb(230, 170,40)
+      }
+
+      *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: #000;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      a {
+        color: var(--color-accent);
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 12px;
+      }
+
+      nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        padding: 1.5em 2em;
+        display: flex;
+        align-content: baseline;
+      }
+
+      footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        padding: 1.5em 2em;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      nav > div {
+        flex: 1;
+      }
+
+      .links-1 {
+        display: flex;
+        gap: 2em;
+      }
+
+      .links-2 {
+        display: flex;
+        gap: 2em;
+        justify-content: flex-end;
+      }
+
+      .logo {
+        display: flex;
+        justify-content: center;
+      }
+
+      .logo a{
+        font-size: 16px;
+        font-weight: bolder;
+        letter-spacing: -0.02em;
+      }
+
+      .container {
+        width: 100%;
+        height: 2000vh;
+      }
+
+      .active-slide {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: #000;
+        opacity: 0.35;
+        z-index: -1;
+      }
+
+      .active-slide img {
+        position: absolute;
+        filter: blur(50px);
+        transform: scale(1.125);
+      }
+
+      .slider {
+        position: fixed;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        transform-style: preserve-3d;
+        perspective: 750px;
+        overflow: hidden;
+      }
+
+      .slide {
+        position: absolute;
+        width: 400px;
+        height: 500px;
+        overflow: hidden;
+      }
+
+      .slide-copy p {
+        text-transform: uppercase;
+        text-align: center;
+        font-size: 13px;
+        font-weight: bolder;
+        line-height: 150%;
+        color: var(--color-accent);
+      }
+
+      .slide-copy p#index {
+        font-size: 11px;
+        font-weight: 400;
+        margin-bottom: 0.75em;
+      }
+
+      #slide-1 {
+        position: absolute;
+        top: 50%;
+        left: 70%;
+        transform: translateX(-50%)translateY(-50%)translateZ(-22500px);
+        opacity: 0;
+      }
+      #slide-2 {
+        position: absolute;
+        top: 50%;
+        left: 30%;
+        transform: translateX(-50%)translateY(-50%)translateZ(-20000px);
+        opacity: 0;
+      }
+      #slide-3 {
+        position: absolute;
+        top: 50%;
+        left: 70%;
+        transform: translateX(-50%)translateY(-50%)translateZ(-17500px);
+        opacity: 0;
+      }
+      #slide-4 {
+        position: absolute;
+        top: 50%;
+        left: 30%;
+        transform: translateX(-50%)translateY(-50%)translateZ(-15000px);
+        opacity: 0;
+      }
+      #slide-5 {
+        position: absolute;
+        top: 50%;
+        left: 70%;
+        transform: translateX(-50%)translateY(-50%)translateZ(-12500px);
+        opacity: 0;
+      }
+      #slide-6 {
+        position: absolute;
+        top: 50%;
+        left: 30%;
+        transform: translateX(-50%)translateY(-50%)translateZ(-10000px);
+        opacity: 0;
+      }
+      #slide-7 {
+        position: absolute;
+        top: 50%;
+        left: 70%;
+        transform: translateX(-50%)translateY(-50%)translateZ(-7500px);
+        opacity: 0;
+      }
+      #slide-8 {
+        position: absolute;
+        top: 50%;
+        left: 30%;
+        transform: translateX(-50%)translateY(-50%)translateZ(-5000px);
+        opacity: 0;
+      }
+      #slide-9 {
+        position: absolute;
+        top: 50%;
+        left: 70%;
+        transform: translateX(-50%)translateY(-50%)translateZ(-2500px);
+        opacity: 0.5;
+      }
+      #slide-10 {
+        position: absolute;
+        top: 50%;
+        left: 30%;
+        transform: translateX(-50%)translateY(-50%)translateZ(0px);
+        opacity: 1;
+      }
+
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="links-1">
+        <a href="">Works</a>
+        <a href="">Archive</a>
+      </div>
+      <div class="logo">
+        <a href="">Modavate</a>
+      </div>
+      <div class="links-2">
+        <a href="">Info</a>
+        <a href="">Contact</a>
+      </div>
+    </nav>
+    <footer>
+      <p>WWatch Showereel</p>
+      <p>Coming Soon</p>
+    </footer>
+
+    <div class="container">
+      <div class="active-slide">
+        <img src="../public/assets/imges/img_24_03_04/1.png" alt="">
+        <img src="../public/assets/imges/img_24_03_04/1.png" alt="">
+        <img src="../public/assets/imges/img_24_03_04/1.png" alt="">
+        <img src="../public/assets/imges/img_24_03_04/1.png" alt="">
+        <img src="../public/assets/imges/img_24_03_04/1.png" alt="">
+        <img src="../public/assets/imges/img_24_03_04/1.png" alt="">
+        <img src="../public/assets/imges/img_24_03_04/1.png" alt="">
+        <img src="../public/assets/imges/img_24_03_04/1.png" alt="">
+        <img src="../public/assets/imges/img_24_03_04/1.png" alt="">
+        <img src="../public/assets/imges/img_24_03_04/1.png" alt="">
+      </div>
+      <div class="slider">
+
+        <div class="slide" id="slide-1">
+          <div class="slide-copy">
+            <p>Neo Elegance</p>
+            <p id="index">( ES 2023 0935 )</p>
+          </div>
+          <div class="slide-img">
+            <img src="https://cdn.discordapp.com/attachments/1213783349026623531/1215617400242970705/hakyongsu_a_character_whose_head_is_a_monitor_in_a_hoodie_4b518479-becd-42a5-93c5-48662aa8220a.png?ex=65fd66ed&is=65eaf1ed&hm=1f83210924e87b2dc7021593ba8105ce18730f5a2ffb2a84d351841cb44d0358&" alt="">
+          </div>
+        </div>
+
+        <div class="slide" id="slide-2">
+          <div class="slide-copy">
+            <p>Future Luxe</p>
+            <p id="index">( ES 2023 0936 )</p>
+          </div>
+          <div class="slide-img">
+            <img src="https://cdn.discordapp.com/attachments/1213783349026623531/1215617400242970705/hakyongsu_a_character_whose_head_is_a_monitor_in_a_hoodie_4b518479-becd-42a5-93c5-48662aa8220a.png?ex=65fd66ed&is=65eaf1ed&hm=1f83210924e87b2dc7021593ba8105ce18730f5a2ffb2a84d351841cb44d0358&" alt="">
+          </div>
+        </div>
+
+        <div class="slide" id="slide-3">
+          <div class="slide-copy">
+            <p>Cyber Glam</p>
+            <p id="index">( ES 2023 0937 )</p>
+          </div>
+          <div class="slide-img">
+            <img src="https://cdn.discordapp.com/attachments/1213783349026623531/1215617400242970705/hakyongsu_a_character_whose_head_is_a_monitor_in_a_hoodie_4b518479-becd-42a5-93c5-48662aa8220a.png?ex=65fd66ed&is=65eaf1ed&hm=1f83210924e87b2dc7021593ba8105ce18730f5a2ffb2a84d351841cb44d0358&" alt="">
+          </div>
+        </div>
+
+        <div class="slide" id="slide-4">
+          <div class="slide-copy">
+            <p>Visionay Threads</p>
+            <p id="index">( ES 2023 0938 )</p>
+          </div>
+          <div class="slide-img">
+            <img src="https://cdn.discordapp.com/attachments/1213783349026623531/1215617400242970705/hakyongsu_a_character_whose_head_is_a_monitor_in_a_hoodie_4b518479-becd-42a5-93c5-48662aa8220a.png?ex=65fd66ed&is=65eaf1ed&hm=1f83210924e87b2dc7021593ba8105ce18730f5a2ffb2a84d351841cb44d0358&" alt="">
+          </div>
+        </div>
+
+        <div class="slide" id="slide-5">
+          <div class="slide-copy">
+            <p>Galactic Chic</p>
+            <p id="index">( ES 2023 0939 )</p>
+          </div>
+          <div class="slide-img">
+            <img src="https://cdn.discordapp.com/attachments/1213783349026623531/1215617400242970705/hakyongsu_a_character_whose_head_is_a_monitor_in_a_hoodie_4b518479-becd-42a5-93c5-48662aa8220a.png?ex=65fd66ed&is=65eaf1ed&hm=1f83210924e87b2dc7021593ba8105ce18730f5a2ffb2a84d351841cb44d0358&" alt="">
+          </div>
+        </div>
+
+        <div class="slide" id="slide-6">
+          <div class="slide-copy">
+            <p>Tech Sophistication</p>
+            <p id="index">( ES 2023 0940 )</p>
+          </div>
+          <div class="slide-img">
+            <img src="https://cdn.discordapp.com/attachments/1213783349026623531/1215617400242970705/hakyongsu_a_character_whose_head_is_a_monitor_in_a_hoodie_4b518479-becd-42a5-93c5-48662aa8220a.png?ex=65fd66ed&is=65eaf1ed&hm=1f83210924e87b2dc7021593ba8105ce18730f5a2ffb2a84d351841cb44d0358&" alt="">
+          </div>
+        </div>
+
+        <div class="slide" id="slide-7">
+          <div class="slide-copy">
+            <p>Avant Edge</p>
+            <p id="index">( ES 2023 0941 )</p>
+          </div>
+          <div class="slide-img">
+            <img src="https://cdn.discordapp.com/attachments/1213783349026623531/1215617400242970705/hakyongsu_a_character_whose_head_is_a_monitor_in_a_hoodie_4b518479-becd-42a5-93c5-48662aa8220a.png?ex=65fd66ed&is=65eaf1ed&hm=1f83210924e87b2dc7021593ba8105ce18730f5a2ffb2a84d351841cb44d0358&" alt="">
+          </div>
+        </div>
+
+        <div class="slide" id="slide-8">
+          <div class="slide-copy">
+            <p>Moda Futura</p>
+            <p id="index">( ES 2023 0942 )</p>
+          </div>
+          <div class="slide-img">
+            <img src="https://cdn.discordapp.com/attachments/1213783349026623531/1215617400242970705/hakyongsu_a_character_whose_head_is_a_monitor_in_a_hoodie_4b518479-becd-42a5-93c5-48662aa8220a.png?ex=65fd66ed&is=65eaf1ed&hm=1f83210924e87b2dc7021593ba8105ce18730f5a2ffb2a84d351841cb44d0358&" alt="">
+          </div>
+        </div>
+
+        <div class="slide" id="slide-9">
+          <div class="slide-copy">
+            <p>Eco Futuist</p>
+            <p id="index">( ES 2023 0943 )</p>
+          </div>
+          <div class="slide-img">
+            <img src="https://cdn.discordapp.com/attachments/1213783349026623531/1215617400242970705/hakyongsu_a_character_whose_head_is_a_monitor_in_a_hoodie_4b518479-becd-42a5-93c5-48662aa8220a.png?ex=65fd66ed&is=65eaf1ed&hm=1f83210924e87b2dc7021593ba8105ce18730f5a2ffb2a84d351841cb44d0358&" alt="">
+          </div>
+        </div>
+        
+        <div class="slide" id="slide-10">
+          <div class="slide-copy">
+            <p>Sleek Tomorrow</p>
+            <p id="index">( ES 2023 0944 )</p>
+          </div>
+          <div class="slide-img">
+            <img src="https://cdn.discordapp.com/attachments/1213783349026623531/1215617400242970705/hakyongsu_a_character_whose_head_is_a_monitor_in_a_hoodie_4b518479-becd-42a5-93c5-48662aa8220a.png?ex=65fd66ed&is=65eaf1ed&hm=1f83210924e87b2dc7021593ba8105ce18730f5a2ffb2a84d351841cb44d0358&" alt="">
+          </div>
+        </div>
+
+      </div>
+        
+    </div>
+
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"> </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"> </script>
+    <script>
+        
+    </script>
+  </body>
+</html>
