@@ -348,7 +348,80 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"> </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"> </script>
     <script>
-        
+        gsap.registerPlugin(ScrollTrigger);
+        window.addEventListener('load', function(){
+          const slides = gsap.utils.toArray(".slide")
+          const activeSlideimages = gsap.utils.toArray(".active-slide img")
+          document.querySelectorAll
+          console.log(slides)
+          function getInitialTranslateZ(slide) {
+            const style = window.getComputedStyle(slide)
+            const matrix = style.transform.match(/matrix3d\((.+\))/)
+            if( matrix) {
+              const values = matrix[1].split(", ");
+              return parseFloat(values[14] || 0);
+            }
+            return  0
+          } // getInitialTranslateZ
+          
+          function mapRange(value, inMin, inMax, outMin, outMin, outMax) {
+              return  ((value - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin; 
+          } // mapRange
+
+          slides.forEach((slide, index) => {
+            const initailZ = getInitialTranslateZ(slide)
+            ScrollTrigger.create({
+              trigger: ".container",
+              start: "top top",
+              end: "bottom bottom",
+              scrub: true,
+              onUpdate: (self) =>{
+                const progress = self.progress;
+                const zIncrement = progress * 22500;
+                const currentZ = initailZ + zIncrement;
+
+                
+                let opacity
+
+                if (currentZ > -25000) {
+                  opacity = mapRange(currentZ, -2500, 0, 0, 0.5, 1);
+                } else {
+                  opacity = mapRange(currentZ, -5000, -2500, 0, 0.5)
+                }
+
+                slide.style.opacity = opacity;
+                slide.style.transform = `translateX(-50%) translateY(-50%) translateZ(${currentZ}px)`
+
+
+                if(currentZ < 100) {
+                  gsap.to(activeSlideimages[index], 1.5, {
+                    opacity:1,
+                    ease:"power3.out",
+                  })
+                }
+                else {
+                  gsap.to(activeSlideimages[index], 1.5,{
+                    opacity:0,
+                    ease:"power3.out"
+                  })
+                }
+              }//onupdate
+            })//scrollTrigger
+          })//forEach
+        })//load
+
+        // * gsap의 인자값
+        // gsap.to(activeSlideimages[index], 1.5, {))
+        //  위의 gsap 코드는 (대상, 지속시간, 내용 값을 인자로 가진다 
+        //
+        // ** getComputedStyle
+        // getComputedStyle는 대상의 스타일을 가져올 수 있다
+        // ex) console.log(window.getComputedStyle(div).display) == block, none, flex, inline, inline-block
+        // 위의 속성처럼 디스플레이나 오버플로 같은 특정값을 얻어올 수 있다.
+        //
+        // *** gsap.utils.toArray 와 document.querySelectorAll 의 차이점
+        // gsap.utils.toArray(".slide")의 utils.toArray는 실제 배열을 반환함으로서 map, filter,reduce등의 배열메소드를 사용할 수 있게 함
     </script>
+    
   </body>
 </html>
