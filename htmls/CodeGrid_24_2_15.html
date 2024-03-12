@@ -1,0 +1,248 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>24_2_15</title>
+    <style>
+      *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html, body {
+        width: 100%;
+        height: 100%;
+      }
+
+      a{
+        text-decoration: none;
+        color: #cdc6be;
+      }
+
+      .website-content {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        background: #cdc6be;
+        padding: 2em;
+      }
+
+      .hero-img {
+        margin-top: 4em;
+        width: 100%;
+        height: 200%;
+        border: 2px solid #141412;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      nav {
+        position: fixed;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5em 2em;
+        color: #cdc6be;
+        mix-blend-mode: difference;
+        z-index: 2;
+      }
+
+      nav > div {
+        flex: 1;
+      }
+
+      .logo {
+        text-align: center;
+      }
+
+      .logo a {
+        text-decoration: none;
+        font-size: 30px;
+      }
+
+      .toggle-btn {
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      .burger {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1.75em 2em 1.5em 2em;
+        background: rgba(255, 255, 255, 0);
+        outline: none;
+        border: none;
+        width: 28px;
+        height: 20px;
+        transition:  all 250ms ease-out;
+        cursor: pointer;
+      }
+
+      .burger::before,
+      .burger::after {
+        content: "";
+        width: 40px;
+        height: 2px;
+        position: absolute;
+        background: #cdc6be;
+        transition: all 250ms ease-out;
+        will-change: transform;
+      }
+
+      .burger::before {
+        transform: translateY(-3px);        
+      }
+      .burger::after {
+        transform: translateY(3px);        
+      }
+
+      .active.burger::before {
+        transform: translateY(0) rotate(45deg); 
+      }
+      .active.burger::after {
+        transform: translateY(0) rotate(-45deg);        
+      }
+
+      .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        background: #141412;
+        /* clip-path : polygon(0 0, 100% 0, 100% 0, 0 0) */
+        will-change: transform;
+      }
+
+      .overlay-menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        gap: 1em;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .menu-item {
+        display: flex;
+        cursor: pointer;
+      }
+
+      .menu-item  p {
+        position: relative;
+        text-align: center;
+        font-size: 15vw;
+        line-height: 80%;
+        will-change: transform;
+        transition: letter-spacing 0.3s
+      }
+
+      .menu-item p:hover {
+        letter-spacing: 0.075em;
+      }
+
+      .menu-item p#active::after {
+        content: "";
+        position: absolute;
+        top: 45%;
+        left: 0;
+        transform: translateY(-50%);
+        background: #c03f13;
+        width: 0%;
+        height: 12px;
+      }
+
+      .sub-nav {
+        position: absolute;
+        bottom: 5%;
+        left: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        gap: 0.5em;
+       opacity: 0; 
+      }
+
+      .sub-nav p {
+        font-size: 20px;
+        color: #cdc6be;
+      }
+
+      @media(max-width:900px){
+        .logo a {
+          font-size: 20px;
+        }
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="website-content">
+      <div class="hero-img">
+        <img src="https://cdn.discordapp.com/attachments/1213783349026623531/1217066404256415754/hakyongsu_1600s_style_of_painting_a088d846-375d-49ee-81ab-32e0ddcedfb8.png?ex=6602ac6a&is=65f0376a&hm=6f7999ad3bc51f2818292ddafbe1a7df9a5d60c8e16bc65a7e2517da518a21eb&" alt="">
+      </div>
+    </div>
+    <nav>
+      <div class="info">
+        <p>Folio Vol. 1</p>
+      </div>
+      <div class="logo">
+        <p><a href="">The Elite Protfolio</a></p>
+      </div>
+      <div class="toggle-btn">
+        <button class="burger"></button>
+      </div>
+    </nav>
+
+    <div class="overlay">
+      <div class="overlay-menu">
+        <div class="menu-item">
+          <p id="active"><a href="">Home</a></p>
+        </div>
+        <div class="menu-item">
+          <p id="active"><a href="">Work</a></p>
+        </div>
+        <div class="menu-item">
+          <p id="active"><a href="">About</a></p>
+        </div>
+      </div>
+      <div class="sub-nav">
+        <p><a href="#">Twitter</a></p>
+        <p>.</p>
+        <p><a href="#">Instagram</a></p>
+        <p>.</p>
+        <p><a href="#">Dribble</a></p>
+        <p>.</p>
+        <p><a href="#">Behance</a></p>
+      </div>
+
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"> </script>
+    <script src="http://unpkg.com/gsap@3/dist/CSSrulePlugin.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function(){
+        let activeItemIndicator = CSSRulePlugin.getRule(".menu-item p#active::after");
+        const toggleButton = document.querySelector(".burger");
+        let isOpen = false
+      })
+    </script>
+  </body>
+</html>
