@@ -206,7 +206,9 @@
         <p><a href="">The Elite Protfolio</a></p>
       </div>
       <div class="toggle-btn">
-        <button class="burger"></button>
+        <button class="burger"
+        onclick="this.classList.toggle('active')"
+        ></button>
       </div>
     </nav>
 
@@ -236,12 +238,53 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"> </script>
-    <script src="http://unpkg.com/gsap@3/dist/CSSrulePlugin.min.js"></script>
+    <script src="http://unpkg.com/gsap@3/dist/CSSRulePlugin.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function(){
         let activeItemIndicator = CSSRulePlugin.getRule(".menu-item p#active::after");
         const toggleButton = document.querySelector(".burger");
         let isOpen = false
+
+        gsap.to(".menu-item p", {y :225});
+        const timeline = gsap.timeline({paused:true})
+
+        timeline.to(".overlay", {
+          duration : 1.5,
+
+          clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+          ease: "power4.inOut"
+        })
+
+        timeline.to(".meenu-item p ", {
+          duration : 1.5,
+          y: 0,
+          stagger: 0.2,
+          ease: "power4.out"
+        },"-=1")
+
+        timeline.to(activeItemIndicator, {
+          width: "100%",
+          duration: 1,
+          ease: "power4.inOut",
+          delay: 0.5
+        },"<")
+
+        timeline.to(".sub-nav", {
+          bottom: "10%",
+          opacity: 1,
+          duration : 0.5,
+          delay : 0.5
+        },"<")
+
+
+        toggleButton.addEventListener("click",function() {
+          if (isOpen){
+            timeline.reverse()
+          }else {
+            timeline.play()
+          }
+          isOpen = !isOpen
+        })
       })
     </script>
   </body>

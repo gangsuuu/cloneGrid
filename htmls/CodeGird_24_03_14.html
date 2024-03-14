@@ -1,0 +1,368 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>24_03_14</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,body {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background-color: rgb(196,196,176);
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      a {
+        text-decoration: none;
+        color: #000;
+        font-size: 13.5px;
+        font-weight: 500;
+      }
+
+      nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        padding: 1em;
+        display: flex;
+      }
+
+      nav .logo a {
+        font-weight: bold;
+      }
+
+      nav > div {
+        flex :1;
+      }
+
+      nav .nav-itmes {
+        display: flex;
+        gap: 1em;
+        justify-content: center;
+      }
+
+      nav .contact {
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      .container {
+        display: flex;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+      }
+
+      .items {
+        width: 100%;
+        display: flex;
+      }
+
+      .items-col {
+        flex: 1;
+        display: flex;
+      }
+
+      .item {
+        position: relative;
+        top: 15vh;
+        height: 300px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .item-copy {
+        padding: 0.5em;
+        height: 50px;
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .item-copy-wrapper {
+        clip-path:  polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+      }
+
+      .item-copy-wrapper p {
+        position: relative;
+        margin-bottom: 0.2em;
+        font-weight: 500;
+        font-size: 13.5px;
+        line-height: 100%;
+      }
+
+      .item-side .item-img {
+        flex: 1;
+        overflow: hidden;
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+      }      
+
+      .items-col:nth-child(2) {
+        flex: 0 0 300px;
+        display: flex;
+        justify-content: center;
+      }
+
+      .item-main {
+        position: relative;
+        top: 15vh;
+        width: 300px;
+        height: 450px;
+        overflow: hidden;
+      }
+
+      .item-main .item-img img {
+        transform: scale(0.5);
+        clip-path:  polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
+      }
+
+      .header {
+        position: absolute;
+        bottom: 35%;
+        transform-origin: center center;
+        width: 100%;
+        display: flex;
+      }
+
+      .header-item {
+        position: relative;
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        transform: scale(0.25);
+      }
+
+      .header-item-1 {
+        left:18vw
+      }
+      .header-item-2 {
+        right: 18vw;
+      }
+
+      .letter {
+        flex: 1;
+        font-size: 17vw;
+        font-weight: 300;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+      }
+
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="logo">
+        <a href="">Nork Wood</a>
+      </div>
+      <div class="nav-itmes">
+        <a href="#">Home</a>
+        <a href="#">Info</a>
+        <a href="#">Products</a>
+        <a href="#">Shop</a>
+      </div>
+      <div class="contact">
+        <a href="#">Contact</a>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="items">
+        <div class="items-col">
+          <div class="item item-side">
+            <div class="item-copy">
+              <div class="item-copy-wrapper">
+                <p>Lorem ipsum</p>
+              </div>
+              <div class="item-copy-wrapper">
+                <p>Lorem ipsum</p>
+              </div>
+            </div>
+            <div class="item-img">
+              <img src="https://cdn.discordapp.com/attachments/1213783349026623531/1217798615809130526/hakyongsu_a_white_chiar_a_white_ramp_by_left_side_the_chiar_ora_5c0f58e3-c778-4b6c-a652-f0d784273ac9.png?ex=66055657&is=65f2e157&hm=43098008f15598a1c2596e159952cbe97fdc9a3e1d7bf88e27bbad82045d0a66&" alt="">
+            </div>
+          </div>
+          <div class="item item-side">
+            <div class="item-copy">
+              <div class="item-copy-wrapper">
+                <p>Lorem ipsum</p>
+              </div>
+              <div class="item-copy-wrapper">
+                <p>Lorem ipsum</p>
+              </div>
+            </div>
+            <div class="item-img">
+              <img src="https://cdn.discordapp.com/attachments/1213783349026623531/1217798615809130526/hakyongsu_a_white_chiar_a_white_ramp_by_left_side_the_chiar_ora_5c0f58e3-c778-4b6c-a652-f0d784273ac9.png?ex=66055657&is=65f2e157&hm=43098008f15598a1c2596e159952cbe97fdc9a3e1d7bf88e27bbad82045d0a66&" alt="">
+            </div>
+          </div>
+          <div class="item item-side">
+            <div class="item-copy">
+              <div class="item-copy-wrapper">
+                <p>Lorem ipsum</p>
+              </div>
+              <div class="item-copy-wrapper">
+                <p>Lorem ipsum</p>
+              </div>
+            </div>
+            <div class="item-img">
+              <img src="https://cdn.discordapp.com/attachments/1213783349026623531/1217798615809130526/hakyongsu_a_white_chiar_a_white_ramp_by_left_side_the_chiar_ora_5c0f58e3-c778-4b6c-a652-f0d784273ac9.png?ex=66055657&is=65f2e157&hm=43098008f15598a1c2596e159952cbe97fdc9a3e1d7bf88e27bbad82045d0a66&" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="items-col">
+          <div class="item item-main">
+            <div class="item-copy">
+              <div class="item-copy-wrapper">
+                <p>Lorem ipsum</p>
+              </div>
+              <div class="item-copy-wrapper">
+                <p>Lorem ipsum</p>
+              </div>
+            </div>
+            <div class="item-img">
+              <img src="https://cdn.discordapp.com/attachments/1213783349026623531/1217798615809130526/hakyongsu_a_white_chiar_a_white_ramp_by_left_side_the_chiar_ora_5c0f58e3-c778-4b6c-a652-f0d784273ac9.png?ex=66055657&is=65f2e157&hm=43098008f15598a1c2596e159952cbe97fdc9a3e1d7bf88e27bbad82045d0a66&" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="items-col">
+          <div class="item item-side">
+            <div class="item-copy">
+              <div class="item-copy-wrapper">
+                <p>Lorem ipsum</p>
+              </div>
+              <div class="item-copy-wrapper">
+                <p>Lorem ipsum</p>
+              </div>
+            </div>
+            <div class="item-img">
+              <img src="https://cdn.discordapp.com/attachments/1213783349026623531/1217798615809130526/hakyongsu_a_white_chiar_a_white_ramp_by_left_side_the_chiar_ora_5c0f58e3-c778-4b6c-a652-f0d784273ac9.png?ex=66055657&is=65f2e157&hm=43098008f15598a1c2596e159952cbe97fdc9a3e1d7bf88e27bbad82045d0a66&" alt="">
+            </div>
+          </div>
+          <div class="item item-side">
+            <div class="item-copy">
+              <div class="item-copy-wrapper">
+                <p>Lorem ipsum</p>
+              </div>
+              <div class="item-copy-wrapper">
+                <p>Lorem ipsum</p>
+              </div>
+            </div>
+            <div class="item-img">
+              <img src="https://cdn.discordapp.com/attachments/1213783349026623531/1217798615809130526/hakyongsu_a_white_chiar_a_white_ramp_by_left_side_the_chiar_ora_5c0f58e3-c778-4b6c-a652-f0d784273ac9.png?ex=66055657&is=65f2e157&hm=43098008f15598a1c2596e159952cbe97fdc9a3e1d7bf88e27bbad82045d0a66&" alt="">
+            </div>
+          </div>
+          <div class="item item-side">
+            <div class="item-copy">
+              <div class="item-copy-wrapper">
+                <p>Lorem ipsum</p>
+              </div>
+              <div class="item-copy-wrapper">
+                <p>Lorem ipsum</p>
+              </div>
+            </div>
+            <div class="item-img">
+              <img src="https://cdn.discordapp.com/attachments/1213783349026623531/1217798615809130526/hakyongsu_a_white_chiar_a_white_ramp_by_left_side_the_chiar_ora_5c0f58e3-c778-4b6c-a652-f0d784273ac9.png?ex=66055657&is=65f2e157&hm=43098008f15598a1c2596e159952cbe97fdc9a3e1d7bf88e27bbad82045d0a66&" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="header">
+        <div class="header-item header-item-1">
+          <div class="letter">
+            <div class="letter-wrapper">N</div>
+          </div>
+          <div class="letter">
+            <div class="letter-wrapper">O</div>
+          </div>
+          <div class="letter">
+            <div class="letter-wrapper">R</div>
+          </div>
+          <div class="letter">
+            <div class="letter-wrapper">K</div>
+          </div>
+        </div>
+        <div class="header-item header-item-2">
+          <div class="letter">
+            <div class="letter-wrapper">N</div>
+          </div>
+          <div class="letter">
+            <div class="letter-wrapper">O</div>
+          </div>
+          <div class="letter">
+            <div class="letter-wrapper">R</div>
+          </div>
+          <div class="letter">
+            <div class="letter-wrapper">K</div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"> </script>
+    <script>
+        window.addEventListener("DOMContentLoaded", function(){
+          gsap.set("nav", {y:-100})
+          gsap.set(".letter-wrapper", {y:400})
+          gsap.set(".item-copy-wrapper p",{y:50})
+
+          gsap.defaults({duration:1 , ease:"power3.out"})
+          const tl = gsap.timeline({pause:true, delay:0.5})
+
+          tl.to(".letter-wrapper", {
+            y:0,
+            stagger:0.1
+          })
+          .to(".header-item-1",{
+            left:"12vw"
+          })
+          .to(".header-item-2",{
+            right: "8vw",
+          },"<")
+          .to(".item-main .item-img img",{
+            clipPath: " polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)"
+          },"<")
+          .to(".header-item-1",{
+            left:0,
+            scale:1,
+          })
+          .to(".header-item-2",{
+            right:0,
+            scale:1,
+          },"<")
+          .to(".item-main .item-img img",{
+            scale:1,
+          },"<")
+          .to(".item-side .item-img",{
+            clipPath: "polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)",
+            stageer: 0.1,
+          },"<")
+          .to("header",{
+            bottom:"-2em",
+          },"<")
+          .to(".item-copy-wrapper p",{
+            y:0,
+            stagger:0.05,
+          },"<")
+          .to("nav",{
+            y:0
+          },"<")
+        })
+    </script>
+  </body>
+</html>
